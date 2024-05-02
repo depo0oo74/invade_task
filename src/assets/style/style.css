@@ -1,0 +1,297 @@
+/*=================== Main colors ==========================*/
+:root {
+    --primaryColor: #661A4E;
+    --lightPrimary: #f1e1ec;
+    --lightGray: #F3F3F3;
+    --danger: #FF0000;
+    --gray: #8b8888;
+}
+
+/*====================== Fonts ============================*/
+@font-face {
+    font-family: regular_font;
+    src: url(../fonts/Segoe\ UI.ttf);
+}
+
+@font-face {
+    font-family: bold_font;
+    src: url(../fonts/Segoe\ UI\ Bold.ttf);
+}
+
+/*====================== Global ===========================*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: regular_font;
+    overflow-x: hidden;
+}
+a {
+    text-decoration: none;
+}
+button {
+    border: none;
+    cursor: pointer;
+}
+a.primary,
+button.primary {
+    color: #ffffff;
+    background: var(--primaryColor);
+    border: 1px solid var(--primaryColor);
+    transition: all .3s ease;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+a.primary:hover,
+button.primary:hover {
+    background: var(--primaryColor);
+    color: var(--primaryColor);
+    background: none;
+    border: 1px solid var(--primaryColor);
+}
+
+
+/*======================= Main ============================*/
+main.main {
+    background: var(--lightGray);
+    padding: 10px 0;
+}
+main.main p {
+    text-align: center;
+    color: var(--primaryColor);
+    font-weight: 500;
+    font-size: 17px;
+}
+
+/*===================== Navbar ============================*/
+nav.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 50px;
+    border-block-end: 1px solid var(--lightPrimary);
+}
+nav.navbar div.left-items,
+nav.navbar div.right-items {
+    display: flex;
+    align-items: center;
+}
+nav.navbar img.logo {
+    inline-size: 160px;
+    block-size: 55px;
+}
+nav.navbar ul {
+    display: flex;
+    list-style: none;
+}
+nav.navbar ul li a {
+    color: var(--primaryColor);
+    font-weight: 500;
+    position: relative;
+    margin-inline-start: 30px;
+    border: none;
+}
+nav.navbar ul li a::after {
+    content: '';
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    block-size: 2px;
+    inline-size: 0;
+    background-color: var(--primaryColor);
+    transition: all .3s ease;
+}
+nav.navbar ul li a.active::after,
+nav.navbar ul li a:hover::after {
+    inline-size: 100%;
+}
+
+/*======================= Footer ==========================*/
+footer.footer {
+    text-align: center;
+    background: var(--lightGray);
+    padding: 15px 0;
+}
+footer.footer p {
+    color: var(--primaryColor);
+    font-size: 20px;
+}
+footer.footer p a {
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    transform: translateY(-2px);
+    color: var(--primaryColor) !important;
+}
+footer.footer p a:hover {
+    text-decoration: underline;
+}
+
+/*======================== Table ==========================*/
+table {
+    inline-size: 100%;
+    text-align: center;
+    padding: 0 50px;
+    margin: 50px 0;
+}
+table td,
+table th {
+    padding: 10px 0;
+}
+table thead tr {
+    background: var(--primaryColor);
+    color: #ffffff;
+    font-style: 600;
+}
+table > tbody > tr:nth-child(2n) > td {
+    background-color: var(--lightPrimary) !important;
+}
+table td button.action,
+table td a.action {
+    margin: 0 5px;
+    font-size: 18px;
+}
+table td .action.delete {
+    color: var(--danger);
+}
+table td .action.show {
+    color: var(--primaryColor);
+}
+
+/*===================== Not found =========================*/
+section.not-found {
+    text-align: center;
+    margin-block-end: 85px;
+}
+section.not-found h1 {
+    color: var(--primaryColor);
+    font-size: 90px !important;
+    font-weight: 700;
+    margin-block-end: 50px;
+}
+section.not-found p{
+    font-size: 40px;
+    margin-block-end: 30px;
+    color: var(--primaryColor);
+}
+
+/*===================== grid Details ======================*/
+section.gridDetails {
+    margin: 90px 50px 90px 50px;
+    border: 2px solid var(--primaryColor);
+    border-radius: 15px;
+    padding: 30px;
+}
+section.gridDetails div.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-block-end: 2px solid var(--lightPrimary);
+}
+section.gridDetails div.row:last-of-type {
+    border: none;
+}
+section.gridDetails div.row div b {
+    color: var(--primaryColor);
+}
+section.gridDetails div.row div p {
+    color: var(--gray);
+}
+
+/*======================== filter =========================*/
+section.filter {
+    background: var(--lightPrimary);
+    margin: 30px 50px;
+    padding: 20px 10px;
+    display: flex;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+section.filter label {
+    display: block;
+    margin-block-end: 6px;
+}
+section.filter input,
+section.filter select {
+    inline-size: 300px;
+    block-size: 30px;
+    border-radius: 5px;
+    border: none;
+}
+section.filter input:focus,
+section.filter select:focus {
+    border: none;
+    outline: none;
+    padding: 0px 10px;
+}
+
+/*======================== popup ==========================*/
+section.popup {
+    position: fixed;
+    display: flex;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inset-block-end: 0;
+    block-size: 100%;
+    inline-size: 100%;
+    background: rgba(0, 0, 0, .5);
+    z-index: 10000000000000;
+    align-items: center;
+    justify-content: center;
+}
+section.popup div.pop-con {
+    background: #ffffff;
+    inline-size: 50%;
+    border-radius: 15px;
+}
+section.popup div.pop-con div.pop-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-block-end: 1px solid var(--primaryColor);
+}
+section.popup div.pop-con div.pop-header h5 {
+    color: var(--primaryColor);
+    font-weight: 600;
+    font-size: 20px;
+}
+section.popup div.pop-con div.pop-header button {
+    background: none;
+    font-size: 18px;
+    color: var(--primaryColor);
+}
+section.popup div.pop-con div.pop-body p {
+    color: var(--gray);
+    font-size: 18px;
+    padding: 20px 10px;
+}
+section.popup div.pop-con div.pop-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    border-block-start: 1px solid var(--primaryColor);
+}
+section.popup div.pop-con div.pop-footer button {
+    font-size: 15px;
+    margin-inline-start: 10px;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+section.popup div.pop-con div.pop-footer button.delete {
+    background: var(--danger);
+    border: 1px solid var(--danger);
+    color: #ffffff;
+    transition: all .3s ease;
+}
+section.popup div.pop-con div.pop-footer button.delete:hover {
+    background: #ffffff;
+    border: 1px solid var(--danger);
+    color: var(--danger);
+}
+section.popup div.pop-con div.pop-footer button.cancel {
+    background: none;
+    color: var(--primaryColor);
+    border: 1px solid var(--primaryColor);
+}
