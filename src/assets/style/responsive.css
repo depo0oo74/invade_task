@@ -59,10 +59,19 @@
         padding: 30px 10px;
     }
     nav.navbar ul li {
-        margin-bottom: 20px;
+        margin-block-end: 20px;
     }
     nav.navbar button.mobileNavBarOpen,
     nav.navbar button.mobileNavBarClose {
         display: inline;
+    }
+    section.popup div.pop-con {
+        inline-size: 80%;
+    }
+    section.popup div.pop-con div.pop-header h5 {
+        font-size: 15px;
+    }
+    section.popup div.pop-con div.pop-body p {
+        font-size: 14px;
     }
 }
