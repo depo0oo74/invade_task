@@ -18,24 +18,28 @@ import GovsApis from "../../apis/govs.apis";
 import Table from "../../components/Table";
 import Filter from "../../components/Filter";
 import Popup from "../../components/Popup";
+import Loader from "../../components/Loader";
 
 function Home() {
   // ** states
   const [govsList, setGovsList] = useState([]);
   const [deleteModal, setDeleteModal] = useState(false);
   const [govId, setGovId] = useState("");
+  const [loading, setLoading] = useState(false);
 
   // ** Function to get all govs
   const getAllGovs = async () => {
     const cacheData = localStorage.getItem("govs");
     const onlineStatus = window.navigator.onLine;
     if (onlineStatus) {
+      setLoading(true);
       const response = await GovsApis.getAllGovs();
       if (response) {
         sweetAlert.success(`you have got ${response.data.result} results !!`);
         localStorage.setItem("govs", JSON.stringify(response.data.data));
         setGovsList(response.data.data);
       }
+      setLoading(false);
     } else {
       setGovsList(JSON.parse(cacheData));
     }
@@ -96,6 +100,7 @@ function Home() {
     <>
       <Filter data={govsList} setData={setGovsList} />
       <Table columns={govsCoulmns} data={govsList} />
+      <Loader showLoader={loading} />
       <Popup 
         title="Delete government" 
         description="Do you want to delete this government ?" 
