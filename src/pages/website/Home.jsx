@@ -98,16 +98,20 @@ function Home() {
 
   return (
     <>
-      <Filter data={govsList} setData={setGovsList} />
-      <Table columns={govsCoulmns} data={govsList} />
-      <Loader showLoader={loading} />
-      <Popup 
-        title="Delete government" 
-        description="Do you want to delete this government ?" 
-        modal={deleteModal} 
-        toggle={deleteToggleModal} 
-        handleDelete={() => deleteGov(govId)}
-      />
+      {loading && <Loader showLoader={loading} />}
+      {!loading && (
+        <>
+          <Filter data={govsList} setData={setGovsList} />
+          <Table columns={govsCoulmns} data={govsList} />
+          <Popup 
+            title="Delete government" 
+            description="Do you want to delete this government ?" 
+            modal={deleteModal} 
+            toggle={deleteToggleModal} 
+            handleDelete={() => deleteGov(govId)}
+          />
+        </>
+      )}
     </>
   )
 }
