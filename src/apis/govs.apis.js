@@ -1,7 +1,6 @@
 import ApiService from "./shared/api.service.js";
 import handlingErrors from "../helpers/handlingErrors.js";
-// const BaseUrl = `${process.env.REACT_APP_DEV_URL}/api/v1/govs`;
-const BaseUrl = "https://invade-apis.onrender.com/api/v1/govs"
+const BaseUrl = `${process.env.REACT_APP_PROD_URL}/api/v1/govs`;
 
 const GovsApis = {
   // ** function to get all govs
