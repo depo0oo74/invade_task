@@ -26,23 +26,24 @@ function Home() {
   const [govId, setGovId] = useState("");
 
   // ** Function to get all govs
-  const getAllGovs = async (refresh) => {
+  const getAllGovs = async () => {
     const cacheData = localStorage.getItem("govs");
-    if (cacheData && !refresh) {
-      setGovsList(JSON.parse(cacheData));
-    } else {
+    const onlineStatus = window.navigator.onLine;
+    if (onlineStatus) {
       const response = await GovsApis.getAllGovs();
       if (response) {
         sweetAlert.success(`you have got ${response.data.result} results !!`);
         localStorage.setItem("govs", JSON.stringify(response.data.data));
         setGovsList(response.data.data);
       }
+    } else {
+      setGovsList(JSON.parse(cacheData));
     }
   }
 
   // ** use effect to get all Govs after rendering
   useEffect(() => {
-    getAllGovs(false);
+    getAllGovs();
   }, []);
 
   // ** function to handle toggle delete model
@@ -60,7 +61,7 @@ function Home() {
       } else {
         sweetAlert.error(`${response.data.message}`);  
       }
-      getAllGovs(true);
+      getAllGovs();
     }).catch(() => {
       sweetAlert.error("An Error occured!");
     });
