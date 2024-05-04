@@ -9,8 +9,9 @@ import { ToastContainer } from "react-toastify";
 // ** import toastify style
 import "react-toastify/dist/ReactToastify.css";
 
-// ** IMPORT STYLE SHEET
-import "./assets/style/style.css"
+// ** import style sheets
+import "./assets/style/style.css";
+import "./assets/style/responsive.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

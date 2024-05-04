@@ -73,7 +73,7 @@ function Home() {
           value: "name"
       },
       {
-          name: "Action",
+          name: "Actions",
           value: "_id",
           returnValue: function(id) {
               return (

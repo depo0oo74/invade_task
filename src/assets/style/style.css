@@ -24,7 +24,7 @@
     margin: 0;
     box-sizing: border-box;
 }
-body {
+html, body {
     font-family: regular_font;
     overflow-x: hidden;
 }
@@ -85,6 +85,7 @@ nav.navbar img.logo {
 nav.navbar ul {
     display: flex;
     list-style: none;
+    transition: all .3s ease;
 }
 nav.navbar ul li a {
     color: var(--primaryColor);
@@ -106,6 +107,19 @@ nav.navbar ul li a::after {
 nav.navbar ul li a.active::after,
 nav.navbar ul li a:hover::after {
     inline-size: 100%;
+}
+nav.navbar button.mobileNavBarOpen {
+    font-size: 20px;
+    color: var(--primaryColor);
+    display: none;
+}
+nav.navbar button.mobileNavBarClose {
+    font-size: 15px;
+    color: var(--primaryColor);
+    position: absolute;
+    inset-block-start: 10px;
+    inset-inline-end: 10px;
+    display: none;
 }
 
 /*======================= Footer ==========================*/
@@ -195,9 +209,11 @@ section.gridDetails div.row:last-of-type {
 }
 section.gridDetails div.row div b {
     color: var(--primaryColor);
+    font-size: 18px;
 }
 section.gridDetails div.row div p {
     color: var(--gray);
+    font-size: 18px;
 }
 
 /*======================== filter =========================*/

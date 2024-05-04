@@ -1,0 +1,68 @@
+@media only screen and (max-width: 1200px) {
+    
+}
+
+
+@media only screen and (max-width: 992px) {
+    
+}
+
+
+@media only screen and (max-width: 768px) {
+    nav.navbar {
+        padding: 10px 15px;
+    }
+    section.filter {
+        margin: 30px 15px;
+        padding: 20px 10px;
+        display: block;
+    }
+    section.filter div {
+        margin-block-end: 15px;
+    }
+    table {
+        padding: 0 15px;
+        margin: 15px 0;
+    }
+    section.gridDetails {
+        margin: 90px 15px 90px 15px;
+        padding: 20px;
+    }
+    nav.navbar img.logo {
+        inline-size: 100px;
+        block-size: 30px;
+    }
+}
+
+
+@media only screen and (max-width: 576px) {
+    main.main p,
+    footer.footer p,
+    footer.footer p a,
+    section.gridDetails div.row div b,
+    section.gridDetails div.row div p {
+        font-size: 15px;
+    }
+    nav.navbar ul li a {
+        margin-inline-start: 15px;
+        font-size: 15px;
+    }
+    nav.navbar ul {
+        position: fixed;
+        display: block;
+        inset-inline-start: -150px;
+        inset-block-start: 0;
+        block-size: 100%;
+        inline-size: 150px;
+        border-inline-end: 1px solid #F3F3F3;
+        background: #f1e1ec;
+        padding: 30px 10px;
+    }
+    nav.navbar ul li {
+        margin-bottom: 20px;
+    }
+    nav.navbar button.mobileNavBarOpen,
+    nav.navbar button.mobileNavBarClose {
+        display: inline;
+    }
+}
